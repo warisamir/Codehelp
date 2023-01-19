@@ -37,11 +37,8 @@ console.log(error);
 res.status(500).send({error})
     }
 });
-app.use(function (req, res, next) {
-   res.header("Access-Control-Allow-Origin", "*");
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   next();
-})
+app.use(cors({origin:"*"}));
+app.use(express.json());
 app.listen(5000,()=>console.log('Server is running on port http://localhost:5000'));
 
 
